@@ -19,11 +19,12 @@ export const upsertStreamUser = async (userData) => {
   }
 };
 
-// export const getStreamUser = async (userId) => {
-//   try {
-//     const user = await streamClient.queryUsers({ id: userId });
-//     return user.users[0] || null;
-//   } catch (error) {
-//     console.error("Error fetching Stream user:", error);
-//   }
-// }
+export const generateStreamToken = async (userId) => {
+  try {
+    // Ensure the user id is a string
+    const userIdStr = userId.toString();
+    return streamClient.createToken(userIdStr);
+  } catch (error) {
+    console.error("Error fetching Stream user:", error);
+  }
+};
