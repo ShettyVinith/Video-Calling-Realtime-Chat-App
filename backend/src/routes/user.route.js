@@ -11,8 +11,9 @@ import {
 
 const router = express.Router();
 
-//apply authentication middleware to all routes
+// apply auth middleware to all routes
 router.use(protectRoute);
+
 router.get("/", getRecommendedUsers);
 router.get("/friends", getMyFriends);
 
